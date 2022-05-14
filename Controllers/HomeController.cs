@@ -15,7 +15,8 @@ namespace Hotel_Booking_Site.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = HttpContext.Application["developer"];
+            HttpContext.Application.Remove("developer");
 
             return View();
         }

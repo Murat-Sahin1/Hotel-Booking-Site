@@ -17,5 +17,20 @@ namespace Hotel_Booking_Site
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_start(object sender, EventArgs e)
+        {
+            int online_uye_sayisi = Convert.ToInt32(Application["OnlineUyeSayisi"]);
+            online_uye_sayisi += 1;
+            Application["OnlineUyeSayisi"] = online_uye_sayisi;
+        }
+
+        protected void Session_end(object sender, EventArgs e)
+        {
+            int online_uye_sayisi = Convert.ToInt32(Application["OnlineUyeSayisi"]);
+            online_uye_sayisi -= 1;
+            Application["OnlineUyeSayisi"] = online_uye_sayisi;
+
+        }
     }
 }
