@@ -1,0 +1,40 @@
+﻿@model Hotel_Booking_Site.Models.UserProfile
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Kullanıcı Giriş Ekranı</legend>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.Username)</td>
+                <td>@Html.TextBoxFor(a => a.Username)</td>
+                <td>@Html.ValidationMessageFor(a => a.Username)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.Password)</td>
+                <td>@Html.PasswordFor(a => a.Password)</td>
+                <td>@Html.ValidationMessageFor(a => a.Password)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login"/>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
