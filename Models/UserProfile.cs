@@ -15,9 +15,9 @@ namespace Hotel_Booking_Site.Models
     public partial class UserProfile
     {
         public int UserID { get; set; }
-        [Required(ErrorMessage = "Lütfen kullanýcý adýnýzý giriniz.")]
+        [Required(ErrorMessage = "Kullanýcý adýnýzý boþ veya yanlýþ girdiniz. Lütfen Tekrar giriniz.")]
         public string Username { get; set; }
-        [Required(ErrorMessage = "Lütfen þifrenizi giriniz.")]
+        [Required(ErrorMessage = "Þifrenizi boþ veya yanlýþ girdiniz. Lütfen tekrar giriniz.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

@@ -2,6 +2,20 @@
     Layout = null;
 }
 
+@{
+    /*<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+    </li> */
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,35 +54,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Giriş Yap</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
+
                         <li class="nav-item d-flex justify-content-center mx-auto" style="text-align:center;">
                             <img src="~/Content/images/phone-call.png"
                                  alt=""
                                  width="20"
                                  height="20"
                                  style="text-align:center;" />
-
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -83,8 +85,10 @@
 
     </header>
 
+    <div class="row my-2">
+        <div class="col-md-8 mx-auto">
             <!-- Carousel wrapper -->
-            <div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark h-75 d-inline-block" data-mdb-ride="carousel">
+            <div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
                     <button data-mdb-target="#carouselDarkVariant"
@@ -101,31 +105,31 @@
                 </div>
 
                 <!-- Inner -->
-                <div class="carousel-inner">
+                <div class="carousel-inner 300-px-wide">
                     <!-- Single item -->
                     <div class="carousel-item active">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp" class="d-block w-100" alt="Motorbike Smoke" />
+                        <img src="~/Content/images/hotel1.jpg" class="d-block w-100 h-75" alt="Motorbike Smoke" style="align-content:center; justify-content:center;" />
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h5 style="color:aliceblue;">IP Royal Hotel</h5>
+                            <p style="color:aliceblue;">Dünyanın en itibarlı, 5 yıldızlı hotelleri.</p>
                         </div>
                     </div>
 
                     <!-- Single item -->
                     <div class="carousel-item">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp" class="d-block w-100" alt="Mountaintop" />
+                        <img src="~/Content/images/lasvegas.jpg" class="d-block w-100 h-75" alt="Mountaintop" />
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h5 style="color:aliceblue;">IP Royal Hotel</h5>
+                            <p style="color:aliceblue;">Sizin için dünyanın dört bir yanından derlenmiş en konforlu konaklama durakları.</p>
                         </div>
                     </div>
 
                     <!-- Single item -->
                     <div class="carousel-item">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp" class="d-block w-100" alt="Woman Reading a Book" />
+                        <img src="~/Content/images/hotel3.jpg" class="d-block w-100 h-75" alt="Woman Reading a Book" />
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h5 style="color:aliceblue;">IP Royal Hotel</h5>
+                            <p style="color:aliceblue;">Ödüllü ilk 10 hotel sitesinin arasında.</p>
                         </div>
                     </div>
                 </div>
@@ -141,55 +145,59 @@
                 </button>
             </div>
             <!-- Carousel wrapper -->
+        </div>
+    </div>
 
-    
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-center">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 h-50 " style="height:30px;">
 
-                        <li class="nav-item-active">
-                            <a class="navbar-brand" href="#">
-                                <img src="~/Content/emblem.png"
-                                     alt=""
-                                     width="40"
-                                     height="40" />
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item-active">
-                            <a class="navbar-brand" href="#">
-                                <img src="~/Content/emblem.png"
-                                     alt=""
-                                     width="40"
-                                     height="40" />
-                            </a>
-                        </li>
-                    </ul>
-        </nav>
-        <!-- Navbar -->
-    
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-center">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 h-50 " style="height:30px;">
+
+            <li class="nav-item-active">
+                <a class="navbar-brand" href="#">
+                    <img src="~/Content/emblem.png"
+                         alt=""
+                         width="40"
+                         height="40" />
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
+            <li class="nav-item-active">
+                <a class="navbar-brand" href="#">
+                    <img src="~/Content/emblem.png"
+                         alt=""
+                         width="40"
+                         height="40" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Navbar -->
+
 
 
     <script type="text/javascript"
