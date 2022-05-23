@@ -94,7 +94,7 @@
                
                 <form class="login100-form validate-form" method="post">
                     <span class="login100-form-title p-b-43">
-                        Login to continue
+                        Giriş Yap
                     </span>
                     @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                     {
@@ -104,27 +104,27 @@
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                             @Html.TextBoxFor(a => a.Username, new { @class = "input100", @name = "Username" })
                             <span class="focus-input100"></span>
-                            <span class="label-input100">Username</span>
+                            <span class="label-input100">Kullanıcı Adı</span>
                         </div>
 
 
                         <div class="wrap-input100 validate-input" data-validate="Password is required">
                             @Html.PasswordFor(a => a.Password, new { @class = "input100", @name = "pass" })
                             <span class="focus-input100"></span>
-                            <span class="label-input100">Password</span>
+                            <span class="label-input100">Şifre</span>
                         </div>
 
                         <div class="flex-sb-m w-full p-t-3 p-b-32">
                             <div class="contact100-form-checkbox">
                                 <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                                 <label class="label-checkbox100" for="ckb1">
-                                    Remember me
+                                    Beni Hatırla
                                 </label>
                             </div>
                       
                             <div>
                                 <a href="#" class="txt1">
-                                    Forgot Password?
+                                    Şifremi unuttum
                                 </a>
                             </div>
                         </div>
@@ -132,13 +132,13 @@
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
-                                Login
+                                Giriş yap
                             </button>
                         </div>
 
                         <div class="text-center p-t-46 p-b-20">
                             <span class="txt2">
-                                or sign up using
+                                Kayıt Ol
                             </span>
                         </div>
 

@@ -28,7 +28,7 @@ namespace Hotel_Booking_Site.Controllers
                     {
                         Session["UserID"] = obj.UserID.ToString();
                         Session["Username"] = obj.Username.ToString();
-                        return RedirectToAction("UserDashBoard");
+                        return RedirectToAction("Index");
                     }
                 }
                 
