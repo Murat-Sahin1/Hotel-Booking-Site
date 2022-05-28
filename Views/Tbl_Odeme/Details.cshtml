@@ -1,0 +1,42 @@
+﻿@model Hotel_Booking_Site.Models.Tbl_Odeme
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Odeme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdemeFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdemeFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdemeTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdemeTip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Oda.OdaTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Oda.OdaTip)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OdemeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

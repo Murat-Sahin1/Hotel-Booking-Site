@@ -13,10 +13,10 @@ namespace Hotel_Booking_Site.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_albumlerEntities : DbContext
+    public partial class My_HotelEntities : DbContext
     {
-        public db_albumlerEntities()
-            : base("name=db_albumlerEntities")
+        public My_HotelEntities()
+            : base("name=My_HotelEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace Hotel_Booking_Site.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Tbl_Oda> Tbl_Oda { get; set; }
+        public virtual DbSet<Tbl_Odeme> Tbl_Odeme { get; set; }
         public virtual DbSet<UserProfile> UserProfile { get; set; }
     }
 }

@@ -21,14 +21,14 @@ namespace Hotel_Booking_Site.Controllers
         {
             if (ModelState.IsValid) // Model geçerli mi
             {
-                using (db_albumlerEntities db = new db_albumlerEntities())
+                using (My_HotelEntities db = new My_HotelEntities())
                 {
                     var obj = db.UserProfile.Where(a => a.Username.Equals(obj_user.Username) && a.Password.Equals(obj_user.Password)).FirstOrDefault();
                     if (obj != null)
                     {
                         Session["UserID"] = obj.UserID.ToString();
                         Session["Username"] = obj.Username.ToString();
-                        return RedirectToAction("Index");
+                        return RedirectToAction("UserDashBoard");
                     }
                 }
                 

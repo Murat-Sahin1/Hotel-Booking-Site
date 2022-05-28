@@ -132,26 +132,34 @@
     <Compile Include="Controllers\CookieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Tbl_OdaController.cs" />
+    <Compile Include="Controllers\Tbl_OdemeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDataModel.Context.cs">
+    <Compile Include="Models\Hotel-Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDataModel.Context.tt</DependentUpon>
+      <DependentUpon>Hotel-Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDataModel.cs">
+    <Compile Include="Models\Hotel-Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDataModel.tt</DependentUpon>
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDataModel.Designer.cs">
+    <Compile Include="Models\Hotel-Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDataModel.edmx</DependentUpon>
+      <DependentUpon>Hotel-Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tbl_Oda.cs">
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tbl_Odeme.cs">
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserProfile.cs">
-      <DependentUpon>SampleDataModel.tt</DependentUpon>
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,25 +226,18 @@
     <Content Include="fonts\montserrat\OFL.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SampleDataModel.Context.tt">
+    <Content Include="Models\Hotel-Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SampleDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>SampleDataModel.edmx</DependentUpon>
+      <DependentUpon>Hotel-Model.edmx</DependentUpon>
+      <LastGenOutput>Hotel-Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SampleDataModel.tt">
+    <Content Include="Models\Hotel-Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SampleDataModel.edmx</DependentUpon>
-      <LastGenOutput>SampleDataModel.cs</LastGenOutput>
+      <DependentUpon>Hotel-Model.edmx</DependentUpon>
+      <LastGenOutput>Hotel-Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\SampleDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SampleDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SampleDataModel.edmx.diagram">
-      <DependentUpon>SampleDataModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -316,6 +317,13 @@
     <Content Include="fonts\poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
+    <EntityDeploy Include="Models\Hotel-Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Hotel-Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Hotel-Model.edmx.diagram">
+      <DependentUpon>Hotel-Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -347,6 +355,16 @@
     <Content Include="Views\Cookie\Olustur.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\UserDashBoard.cshtml" />
+    <Content Include="Views\Tbl_Oda\Create.cshtml" />
+    <Content Include="Views\Tbl_Oda\Delete.cshtml" />
+    <Content Include="Views\Tbl_Oda\Details.cshtml" />
+    <Content Include="Views\Tbl_Oda\Edit.cshtml" />
+    <Content Include="Views\Tbl_Oda\Index.cshtml" />
+    <Content Include="Views\Tbl_Odeme\Create.cshtml" />
+    <Content Include="Views\Tbl_Odeme\Delete.cshtml" />
+    <Content Include="Views\Tbl_Odeme\Details.cshtml" />
+    <Content Include="Views\Tbl_Odeme\Edit.cshtml" />
+    <Content Include="Views\Tbl_Odeme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

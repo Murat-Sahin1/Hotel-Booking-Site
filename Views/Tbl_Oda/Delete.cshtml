@@ -1,0 +1,48 @@
+﻿@model Hotel_Booking_Site.Models.Tbl_Oda
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tbl_Oda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaTip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaKisiLimit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaKisiLimit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaGenislik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaGenislik)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="My_HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Oda">
+          <Key>
+            <PropertyRef Name="OdaID" />
+          </Key>
+          <Property Name="OdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OdaTip" Type="varchar" MaxLength="50" />
+          <Property Name="OdaKisiLimit" Type="varchar" MaxLength="50" />
+          <Property Name="OdaGenislik" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Odeme">
+          <Key>
+            <PropertyRef Name="OdemeID" />
+          </Key>
+          <Property Name="OdemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OdaID" Type="int" />
+          <Property Name="OdemeFiyat" Type="varchar" MaxLength="50" />
+          <Property Name="OdemeTip" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="char" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Tbl_Odeme_Tbl_Oda">
+          <End Role="Tbl_Oda" Type="Self.Tbl_Oda" Multiplicity="0..1" />
+          <End Role="Tbl_Odeme" Type="Self.Tbl_Odeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaID" />
+            </Principal>
+            <Dependent Role="Tbl_Odeme">
+              <PropertyRef Name="OdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="My_HotelModelStoreContainer">
+          <EntitySet Name="Tbl_Oda" EntityType="Self.Tbl_Oda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Odeme" EntityType="Self.Tbl_Odeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tbl_Odeme_Tbl_Oda" Association="Self.FK_Tbl_Odeme_Tbl_Oda">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Odeme" EntitySet="Tbl_Odeme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="My_HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Oda">
+          <Key>
+            <PropertyRef Name="OdaID" />
+          </Key>
+          <Property Name="OdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OdaTip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OdaKisiLimit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OdaGenislik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Odeme" Relationship="Self.FK_Tbl_Odeme_Tbl_Oda" FromRole="Tbl_Oda" ToRole="Tbl_Odeme" />
+        </EntityType>
+        <EntityType Name="Tbl_Odeme">
+          <Key>
+            <PropertyRef Name="OdemeID" />
+          </Key>
+          <Property Name="OdemeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OdaID" Type="Int32" />
+          <Property Name="OdemeFiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OdemeTip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Oda" Relationship="Self.FK_Tbl_Odeme_Tbl_Oda" FromRole="Tbl_Odeme" ToRole="Tbl_Oda" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Tbl_Odeme_Tbl_Oda">
+          <End Role="Tbl_Oda" Type="Self.Tbl_Oda" Multiplicity="0..1" />
+          <End Role="Tbl_Odeme" Type="Self.Tbl_Odeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaID" />
+            </Principal>
+            <Dependent Role="Tbl_Odeme">
+              <PropertyRef Name="OdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="My_HotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Oda" EntityType="Self.Tbl_Oda" />
+          <EntitySet Name="Tbl_Odeme" EntityType="Self.Tbl_Odeme" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" />
+          <AssociationSet Name="FK_Tbl_Odeme_Tbl_Oda" Association="Self.FK_Tbl_Odeme_Tbl_Oda">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Odeme" EntitySet="Tbl_Odeme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="My_HotelModelStoreContainer" CdmEntityContainer="My_HotelEntities">
+          <EntitySetMapping Name="Tbl_Oda">
+            <EntityTypeMapping TypeName="My_HotelModel.Tbl_Oda">
+              <MappingFragment StoreEntitySet="Tbl_Oda">
+                <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+                <ScalarProperty Name="OdaTip" ColumnName="OdaTip" />
+                <ScalarProperty Name="OdaKisiLimit" ColumnName="OdaKisiLimit" />
+                <ScalarProperty Name="OdaGenislik" ColumnName="OdaGenislik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Odeme">
+            <EntityTypeMapping TypeName="My_HotelModel.Tbl_Odeme">
+              <MappingFragment StoreEntitySet="Tbl_Odeme">
+                <ScalarProperty Name="OdemeID" ColumnName="OdemeID" />
+                <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+                <ScalarProperty Name="OdemeFiyat" ColumnName="OdemeFiyat" />
+                <ScalarProperty Name="OdemeTip" ColumnName="OdemeTip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="My_HotelModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

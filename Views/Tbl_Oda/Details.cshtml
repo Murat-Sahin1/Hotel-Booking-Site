@@ -1,0 +1,42 @@
+﻿@model Hotel_Booking_Site.Models.Tbl_Oda
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Oda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaTip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaKisiLimit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaKisiLimit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaGenislik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaGenislik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OdaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
