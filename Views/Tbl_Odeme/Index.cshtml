@@ -3,43 +3,51 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="container">
+    <div class="row ">
+        <div class="col my-5 d-flex mx-auto">
+            <h1 class="display-2 d-flex mx-auto">Rezervasyon</h1>
+        </div>
+    </div>
+</div>
 
-<h2>Index</h2>
+<div class="col-md-6 mx-auto">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped table-info">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OdemeFiyat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OdemeTip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tbl_Oda.OdaTip)
+                </th>
+                <th></th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OdemeFiyat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OdemeTip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tbl_Oda.OdaTip)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdemeFiyat)
+                        $
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdemeTip)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tbl_Oda.OdaTip)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OdemeID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OdemeID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OdemeID })
+                    </td>
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OdemeFiyat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OdemeTip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tbl_Oda.OdaTip)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OdemeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OdemeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OdemeID })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+</div>

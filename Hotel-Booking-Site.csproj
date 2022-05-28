@@ -170,6 +170,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\emblem.png" />
     <Content Include="Content\homeScreen\ekonomi-aile.jpg" />
+    <Content Include="Content\homeScreen\hotel-rez.jpg" />
     <Content Include="Content\homeScreen\normal.jpg" />
     <Content Include="Content\homeScreen\suit.jpg" />
     <Content Include="Content\homeScreen\tek-kisi.jpg" />

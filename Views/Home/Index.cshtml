@@ -134,10 +134,10 @@
             <a class="nav-link" aria-current="page" href="#">Ana Sayfa</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Rezervasyon</a>
+            <a class="nav-link" href="@Url.Action("", "Tbl_Oda/Index")">Rezervasyon</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Fiyatlar</a>
+            <a class="nav-link" href="@Url.Action("", "Tbl_Odeme/Index")">Fiyatlar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Hakkımızda</a>
@@ -164,6 +164,7 @@
 </nav>
 <!-- Navbar -->
 
+<!-- Hızlı Rezervasyon -->
 <div class="container my-5">
     <h1 class="display-4 mb-5 d-flex justify-content-center" style="align-self:center;">Hızlı Rezervasyon</h1>
     <div class="row">
@@ -173,7 +174,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Suit Odalar</h5>
                         <p class="card-text">Geniş ve ferah, her şey dahil hizmetin dahil olduğu suit odalarımız; özel müşterilerini bekliyor.</p>
-                        <a href="#" class="btn btn-primary">Rezervasyon</a>
+                        <a href="@Url.Action("", "Tbl_Oda/Index")" class="btn btn-primary">Rezervasyon</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -186,7 +187,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Orta Boy Oda</h5>
                         <p class="card-text">Ortalama bouylarda, üst düzey hizmet alabileceğiniz konforlu odalarımız. İki kişiliğe kadar çıkabilmektedir.</p>
-                        <a href="#" class="btn btn-primary">Rezervasyon</a>
+                        <a href="@Url.Action("", "Tbl_Oda/Index")" class="btn btn-primary">Rezervasyon</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -199,7 +200,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Ekonomi Aile Odaları</h5>
                         <p class="card-text">Ailenizle birlikte huzur içinde kalabileceğiniz, geniş ve konforlu odalarımız. Ailelere özel hizmetlerimiz bulunmaktadır.</p>
-                        <a href="#" class="btn btn-primary">Rezervasyon</a>
+                        <a href="@Url.Action("", "Tbl_Oda/Index")" class="btn btn-primary">Rezervasyon</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -212,7 +213,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tek Kişilik Odalar</h5>
                         <p class="card-text">Tek kişilik odalarımız, standart tek kişilik oda boyutlarının ötesinde olup kaliteden ödün vermeyen hizmetiyle sizlerin hizmetindedir.</p>
-                        <a href="#" class="btn btn-primary">Rezervasyon</a>
+                        <a href="@Url.Action("", "Tbl_Oda/Index")" class="btn btn-primary">Rezervasyon</a>
                     </div>
                     
                     <div class="card-footer">
@@ -222,3 +223,68 @@
             </div>
         </div>
     </div>
+
+<!-- Degerlendirmeler -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <figure>
+                <blockquote class="blockquote">
+                    <p>İstanbul'daki en güvenilir durak.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Alex Orban, <cite title="Source Title">New York Times</cite>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-md-4">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p>Dünya standartlarında hizmet.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Harold Harmanson, <cite title="Source Title">BBC</cite>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-md-4">
+            <figure class="text-end">
+                <blockquote class="blockquote">
+                    <p>Sıcak bir aile evi edasında.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Tom Hurdy Gurdy, <cite title="Source Title">The Guardian</cite>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Rezervasyon -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 d-block mx-auto">
+            <div class="card mb-3"  style="max-height: 400px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="~/Content/homeScreen/hotel-rez.jpg" class="img-fluid rounded-start" alt="..."  style="max-height: 400px;">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body align-content-center">
+                            <h1 class="display-4 mb-5 d-flex justify-content-center" style="align-self:center;">Rezervasyon</h1>
+                            <blockquote class="blockquote d-block justify-content-center">
+                                <p>Dünya çapında ünlü firma ve dergiler tarafından 2020'nin oteli seçilen; İstanbul'un en konforlu oteli IP-Royal Otel'de rezervasyon yapın.</p>
+                            </blockquote>
+                            <a href="@Url.Action("", "Tbl_Oda/Index")" class="btn btn-light d-block justify-content-center" style="align-self:center;">Rezervasyon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
