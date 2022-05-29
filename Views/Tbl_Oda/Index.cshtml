@@ -70,24 +70,38 @@
         {
             var a = Html.DisplayFor(modelItem => item.OdaTip);
             ViewBag.strnk = "~/Content/oda/" + a.ToString() + ".jpg";
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <img src='@Url.Content(ViewBag.strnk)'
-                             alt=""
-                             style="width: 45px; height: 45px"
-                             class="rounded-circle" />
-                        <div class="ms-3">
-                            <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
-                            <p class="text-muted mb-0">IP Royal Hotel</p>
-                        </div>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img src='@Url.Content(ViewBag.strnk)'
+                         alt=""
+                         style="width: 45px; height: 45px"
+                         class="rounded-circle" />
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
+                        <p class="text-muted mb-0">IP Royal Hotel</p>
                     </div>
-                </td>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
+            </td>
+            @if (Html.DisplayFor(modelItem => item.OdaDurum).ToString() == "Mesgul")
+            {
                 <td>
-                    <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
+                    <span class="badge badge-danger rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
                 </td>
+                <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
                 <td>
-                    <span class="badge badge-success rounded-pill d-inline">Müsait</span>
+                    <button type="button" class="btn btn-link btn-sm btn-rounded" disabled>
+                        Rezervasyon
+                    </button>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <span class="badge badge-success rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
                 <td>
@@ -95,7 +109,9 @@
                         Rezervasyon
                     </button>
                 </td>
-            </tr>
+            }
+
+        </tr>
         }
     </tbody>
 </table>
