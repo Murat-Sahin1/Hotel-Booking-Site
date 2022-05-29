@@ -370,6 +370,8 @@
     <Content Include="Views\Tbl_Odeme\Details.cshtml" />
     <Content Include="Views\Tbl_Odeme\Edit.cshtml" />
     <Content Include="Views\Tbl_Odeme\Index.cshtml" />
+    <Content Include="Views\Tbl_Oda\OdaID.cshtml" />
+    <Content Include="Views\Tbl_Oda\Detay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

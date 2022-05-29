@@ -1,7 +1,46 @@
-﻿@{
-//    ViewBag.Title = "About";
-//    <h2>@ViewBag.Title.</h2>
+﻿@{  
+    /* HELPERS */
 }
-<h3>@ViewBag.Message</h3>
+@using (Html.BeginForm())
+{
+    @Html.Label("Kullaniciadi", "Kullanıcı Adı", new { @style = "color:red;font-style:bold;" });
+    <br />
+    @Html.Label("Kullaniciadi", "Kullanıcı Soyadı", new { @style = "color:blue;font-style:bold;" });
+    <br />
+    @Html.Label("Fiyati", "Fiyatı", new { @style = "color:red;font-style:bold;" })
+    @Html.TextBox("Fiyati", 5387.879, format: "{0:C2}")
+    <br />
 
-<p>Use this area to provide additional information.</p>
+    @Html.TextArea("Aciklama", "Öğrencilerin Adres Bilgileri Buraya Yazılacak", 5, 50, new
+   { @style = "color:red;font-style:bold;" })
+
+    <br />
+    @Html.DropDownList("yaş",
+    new[]
+    {
+    new SelectListItem
+    {Text="Genç",Value="1" },
+    new SelectListItem
+    {Text="Orta Yaşlı",Value="2" },
+    new SelectListItem
+    {Text="Yaşlı",Value="3" }
+    }, "Seçim Yapınız")
+
+    <br />
+    
+    @Html.ListBox("odasayısı",
+    new[]
+    {
+    new SelectListItem
+    {Text="1+1",Value="1" },
+    new SelectListItem
+    {Text="2+1",Value="2" },
+    new SelectListItem
+    {Text="3+1",Value="3" },
+    new SelectListItem
+    {Text="4+1",Value="4" }
+    }
+    )
+
+
+}

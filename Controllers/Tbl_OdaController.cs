@@ -123,5 +123,28 @@ namespace Hotel_Booking_Site.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult OdaID(int id)
+        {
+            string OdemeFiyat = (from k in db.Tbl_Odeme
+                            where k.OdaID == id
+                            select k.OdemeFiyat).FirstOrDefault();
+
+            ViewBag.Title = OdemeFiyat + " seçilen odanın fiyatı.";
+            ViewBag.Id = id;
+            List<Tbl_Oda> buFiyattakiOdalar = (from u in db.Tbl_Oda
+                                                 where u.OdaID == id
+                                                 select u).ToList();
+
+            return View(buFiyattakiOdalar);
+
+        }
+        public ActionResult Detay(int id)
+        {
+            Tbl_Oda my_oda = (from u in db.Tbl_Oda
+                              where u.OdaID == id
+                              select u).FirstOrDefault();
+
+            return View(my_oda);
+        }
     }
 }
