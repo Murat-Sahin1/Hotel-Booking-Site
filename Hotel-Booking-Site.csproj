@@ -132,6 +132,7 @@
     <Compile Include="Controllers\CookieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OtoparkController.cs" />
     <Compile Include="Controllers\Tbl_OdaController.cs" />
     <Compile Include="Controllers\Tbl_OdemeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +157,9 @@
       <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tbl_Odeme.cs">
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tbl_Otopark.cs">
       <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserProfile.cs">
@@ -372,6 +376,7 @@
     <Content Include="Views\Tbl_Odeme\Index.cshtml" />
     <Content Include="Views\Tbl_Oda\OdaID.cshtml" />
     <Content Include="Views\Tbl_Oda\Detay.cshtml" />
+    <Content Include="Views\Otopark\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

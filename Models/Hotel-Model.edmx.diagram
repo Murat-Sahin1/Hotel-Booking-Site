@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="My_HotelModel.Tbl_Odeme" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="My_HotelModel.UserProfile" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="My_HotelModel.FK_Tbl_Odeme_Tbl_Oda" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="My_HotelModel.Tbl_Otopark" Width="1.5" PointX="3" PointY="4.125" />
+        <AssociationConnector Association="My_HotelModel.FK_Tbl_Otopark_Tbl_Otopark" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
