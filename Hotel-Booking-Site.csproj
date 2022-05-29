@@ -386,6 +386,7 @@
     <Content Include="Views\Otopark\List.cshtml" />
     <Content Include="Views\Calisan\List.cshtml" />
     <Content Include="Views\Calisan\Index.cshtml" />
+    <Content Include="Views\Login\AdminDashBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

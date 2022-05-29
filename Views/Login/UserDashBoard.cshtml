@@ -1,11 +1,13 @@
-﻿@{
+﻿@{ 
     ViewBag.Title = "UserDashBoard";
-}
-<fieldset>
-    <legend> Kullanıcı Paneli </legend>
-    @if (Session["UserName"] != null)
-    {<text>
-            Hoşgeldin @Session["UserName"].ToString()
-     </text>
-     }
-</fieldset>
+
+    <fieldset>
+        <legend> Kullanıcı Paneli </legend>
+        @if (Session["UserName"] != null)
+        {<text>
+                Hoşgeldin @Session["UserName"].ToString()
+        </text>
+    }
+    </fieldset>
+    
+    }
