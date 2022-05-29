@@ -184,6 +184,10 @@
     <Content Include="Content\images\lasvegas.jpg" />
     <Content Include="Content\images\phone-call.png" />
     <Content Include="Content\images\icons\twitter.png" />
+    <Content Include="Content\oda\Ekonomi.jpg" />
+    <Content Include="Content\oda\Normal.jpg" />
+    <Content Include="Content\oda\Suit.jpg" />
+    <Content Include="Content\oda\Tek.jpg" />
     <Content Include="Content\vendor\animate\animate.css" />
     <Content Include="Content\vendor\animsition\css\animsition.css" />
     <Content Include="Content\vendor\animsition\css\animsition.min.css" />
