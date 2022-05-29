@@ -56,6 +56,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.18.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Dynamic.Core.1.2.18\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -129,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CalisanController.cs" />
     <Compile Include="Controllers\CookieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -152,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hotel-Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tbl_Calisan.cs">
+      <DependentUpon>Hotel-Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tbl_Oda.cs">
       <DependentUpon>Hotel-Model.tt</DependentUpon>
@@ -377,6 +384,8 @@
     <Content Include="Views\Tbl_Oda\OdaID.cshtml" />
     <Content Include="Views\Tbl_Oda\Detay.cshtml" />
     <Content Include="Views\Otopark\List.cshtml" />
+    <Content Include="Views\Calisan\List.cshtml" />
+    <Content Include="Views\Calisan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

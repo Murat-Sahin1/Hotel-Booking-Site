@@ -11,6 +11,7 @@
         <AssociationConnector Association="My_HotelModel.FK_Tbl_Odeme_Tbl_Oda" ManuallyRouted="false" />
         <EntityTypeShape EntityType="My_HotelModel.Tbl_Otopark" Width="1.5" PointX="3" PointY="4.125" />
         <AssociationConnector Association="My_HotelModel.FK_Tbl_Otopark_Tbl_Otopark" />
+        <EntityTypeShape EntityType="My_HotelModel.Tbl_Calisan" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,62 @@
+﻿@model List<Hotel_Booking_Site.Models.Tbl_Calisan>
+
+@{
+    var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 100);
+    ornekgrid.Pager(WebGridPagerModes.All);
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex mx-auto">
+                <h1 class="display-1">Çalışan Listemiz</h1>
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex mx-auto">
+                @using (Html.BeginForm("Index", "Calisan", FormMethod.Get, new
+                {
+                    @class = "navbar-form navbar - left"
+                }))
+                {
+                    <div class="form-group">
+
+                        <input type="text" name="search" value="@ViewBag.search" class="form-control"
+                               placeholder="Arama Yap" />
+
+                    </div>
+                    <button type="submit" value="ARA" class="btn btn-success mx-5">Arama Yap</button>
+                }
+            </div>
+        </div>
+    </div>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div>
+
+                @ornekgrid.Table(
+                tableStyle: "table table-responsive table-bordered",
+                columns: ornekgrid.Columns(
+                ornekgrid.Column(columnName: "CalisanID", header: "Numarası"),
+                ornekgrid.Column(columnName: "CalisanIsim", header: "İsim"),
+                ornekgrid.Column(columnName: "CalisanSoyisim", header: "Soyisim"),
+                ornekgrid.Column(columnName: "CalisanUyruk", header: "Uyruk"),
+                ornekgrid.Column(columnName: "CalisanPozisyon", header: "Pozisyon"),
+                ornekgrid.Column(columnName: "CalisanMusait", header: "Durum"),
+                ornekgrid.Column(header: "Çağır", format: @<button type="submit" class="btn btn-success">Çağır</button>)
+)
+)
+            </div>
+        </div>
+    </div>
+</div>    
+   
+
+</body>
+</html>

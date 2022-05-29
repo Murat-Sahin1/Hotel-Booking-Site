@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="My_HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CalisanIsim" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanSoyisim" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanUyruk" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanPozisyon" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanMusait" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Tbl_Oda">
           <Key>
             <PropertyRef Name="OdaID" />
@@ -64,6 +75,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="My_HotelModelStoreContainer">
+          <EntitySet Name="Tbl_Calisan" EntityType="Self.Tbl_Calisan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Oda" EntityType="Self.Tbl_Oda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Odeme" EntityType="Self.Tbl_Odeme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Otopark" EntityType="Self.Tbl_Otopark" Schema="dbo" store:Type="Tables" />
@@ -136,6 +148,7 @@
             <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
             <End Role="Tbl_Otopark" EntitySet="Tbl_Otopark" />
           </AssociationSet>
+          <EntitySet Name="Tbl_Calisan" EntityType="My_HotelModel.Tbl_Calisan" />
         </EntityContainer>
         <EntityType Name="Tbl_Otopark">
           <Key>
@@ -157,6 +170,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tbl_Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalisanIsim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanSoyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanUyruk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanPozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanMusait" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -198,6 +222,18 @@
               <MappingFragment StoreEntitySet="Tbl_Otopark">
                 <ScalarProperty Name="OdaID" ColumnName="OdaID" />
                 <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Calisan">
+            <EntityTypeMapping TypeName="My_HotelModel.Tbl_Calisan">
+              <MappingFragment StoreEntitySet="Tbl_Calisan">
+                <ScalarProperty Name="CalisanMusait" ColumnName="CalisanMusait" />
+                <ScalarProperty Name="CalisanPozisyon" ColumnName="CalisanPozisyon" />
+                <ScalarProperty Name="CalisanUyruk" ColumnName="CalisanUyruk" />
+                <ScalarProperty Name="CalisanSoyisim" ColumnName="CalisanSoyisim" />
+                <ScalarProperty Name="CalisanIsim" ColumnName="CalisanIsim" />
+                <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

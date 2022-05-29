@@ -1,0 +1,66 @@
+﻿@model List<Hotel_Booking_Site.Models.Tbl_Calisan>
+
+@{
+    var my_Grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 13);
+    my_Grid.Pager(WebGridPagerModes.All);
+}
+
+<style type="text/css">
+    .webgrid-table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: solid 1px black;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid black;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header {
+        background-color: antiquewhite;
+        color: #FFFFFF;
+        padding-bottom: 4px;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: darkgrey;
+        padding: 3px 7px 2px;
+    }
+</style>
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-12">
+            <div id="content">
+                @my_Grid.GetHtml(
+                tableStyle: "webgrid-table",
+                headerStyle: "webgrid-header",
+                footerStyle: "webgrid-footer",
+                alternatingRowStyle: "webgrid-alternating-row",
+                rowStyle: "webgrid-row-style",
+                columns: my_Grid.Columns(
+                my_Grid.Column(columnName: "CalisanID", header: "Numara"),
+                my_Grid.Column(columnName: "CalisanIsim", header: "İsim"),
+                my_Grid.Column(columnName: "CalisanSoyisim", header: "Soy İsim"),
+                my_Grid.Column(columnName: "CalisanPozisyon", header: "Pozisyon"),
+                my_Grid.Column(columnName: "CalisanUyruk", header: "Uyruk"),
+                my_Grid.Column(columnName: "CalisanMusait", header: "Durum")
+
+                ))
+            </div>
+        </div>
+    </div>
+</div>
