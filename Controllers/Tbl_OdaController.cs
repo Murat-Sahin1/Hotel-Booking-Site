@@ -19,6 +19,16 @@ namespace Hotel_Booking_Site.Controllers
         {
             return View(db.Tbl_Oda.ToList());
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(Tbl_Oda my_obj)
+        {
+            return RedirectToAction("Rezervasyon_Ekrani");
+        }
+        public ActionResult Rezervasyon_Ekrani()
+        {
+            return View();
+        }
 
         // GET: Tbl_Oda/Details/5
         public ActionResult Details(int? id)

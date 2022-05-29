@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Hotel_Booking_Site.Models.Tbl_Otopark>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Otopark Numarası
+        </th>
+        <th>
+            Oda Numarası
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OdaID)
+        </td>
+        <td>
+             @Html.DisplayFor(modelItem => item.OtoparkID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OtoparkID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OtoparkID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OtoparkID })
+        </td>
+    </tr>
+}
+
+</table>

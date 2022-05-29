@@ -68,50 +68,58 @@
     <tbody>
         @foreach (var item in Model)
         {
-            var a = Html.DisplayFor(modelItem => item.OdaTip);
-            ViewBag.strnk = "~/Content/oda/" + a.ToString() + ".jpg";
-        <tr>
-            <td>
-                <div class="d-flex align-items-center">
-                    <img src='@Url.Content(ViewBag.strnk)'
-                         alt=""
-                         style="width: 45px; height: 45px"
-                         class="rounded-circle" />
-                    <div class="ms-3">
-                        <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
-                        <p class="text-muted mb-0">IP Royal Hotel</p>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
-            </td>
-            @if (Html.DisplayFor(modelItem => item.OdaDurum).ToString() == "Mesgul")
+            using (Html.BeginForm("Index", "Tbl_Oda", FormMethod.Post))
             {
-                <td>
-                    <span class="badge badge-danger rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
-                <td>
-                    <button type="button" class="btn btn-link btn-sm btn-rounded" disabled>
-                        Rezervasyon
-                    </button>
-                </td>
-            }
-            else
-            {
-                <td>
-                    <span class="badge badge-success rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
-                <td>
-                    <button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Rezervasyon
-                    </button>
-                </td>
-            }
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
 
-        </tr>
+                var a = Html.DisplayFor(modelItem => item.OdaTip);
+                ViewBag.strnk = "~/Content/oda/" + a.ToString() + ".jpg";
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src='@Url.Content(ViewBag.strnk)'
+                                 alt=""
+                                 style="width: 45px; height: 45px"
+                                 class="rounded-circle" />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
+                                <p class="text-muted mb-0">IP Royal Hotel</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
+                    </td>
+                    @if (Html.DisplayFor(modelItem => item.OdaDurum).ToString() == "Mesgul")
+                    {
+                        <td>
+                            <span class="badge badge-danger rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
+                        <td>
+                            <button type="button" class="btn btn-link btn-sm btn-rounded" disabled>
+                                Rezervasyon
+                            </button>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
+                        <td>
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Giriş yap
+                                </button>
+                            </div>
+                        </td>
+
+                    }
+                </tr>
+            }
         }
     </tbody>
 </table>
