@@ -1,0 +1,58 @@
+﻿@model Hotel_Booking_Site.Models.Tbl_Calisan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Calisan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CalisanIsim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalisanIsim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalisanSoyisim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalisanSoyisim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalisanUyruk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalisanUyruk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalisanPozisyon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalisanPozisyon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalisanMusait)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalisanMusait)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CalisanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

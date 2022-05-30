@@ -24,8 +24,10 @@ namespace Hotel_Booking_Site.Models
         public string OdaTip { get; set; }
         public string OdaKisiLimit { get; set; }
         public string OdaGenislik { get; set; }
+        public string OdaDurum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Odeme> Tbl_Odeme { get; set; }
+        public virtual Tbl_Otopark Tbl_Otopark { get; set; }
     }
 }

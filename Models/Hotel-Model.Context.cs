@@ -28,5 +28,7 @@ namespace Hotel_Booking_Site.Models
         public virtual DbSet<Tbl_Oda> Tbl_Oda { get; set; }
         public virtual DbSet<Tbl_Odeme> Tbl_Odeme { get; set; }
         public virtual DbSet<UserProfile> UserProfile { get; set; }
+        public virtual DbSet<Tbl_Otopark> Tbl_Otopark { get; set; }
+        public virtual DbSet<Tbl_Calisan> Tbl_Calisan { get; set; }
     }
 }

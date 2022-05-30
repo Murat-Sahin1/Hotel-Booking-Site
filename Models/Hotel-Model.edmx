@@ -4,7 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="My_HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="My_HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CalisanIsim" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanSoyisim" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanUyruk" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanPozisyon" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanMusait" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Tbl_Oda">
           <Key>
             <PropertyRef Name="OdaID" />
@@ -13,6 +24,7 @@
           <Property Name="OdaTip" Type="varchar" MaxLength="50" />
           <Property Name="OdaKisiLimit" Type="varchar" MaxLength="50" />
           <Property Name="OdaGenislik" Type="varchar" MaxLength="50" />
+          <Property Name="OdaDurum" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Tbl_Odeme">
           <Key>
@@ -22,6 +34,13 @@
           <Property Name="OdaID" Type="int" />
           <Property Name="OdemeFiyat" Type="varchar" MaxLength="50" />
           <Property Name="OdemeTip" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Otopark">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OdaID" Type="int" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -43,17 +62,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tbl_Otopark_Tbl_Otopark">
+          <End Role="Tbl_Oda" Type="Self.Tbl_Oda" Multiplicity="1" />
+          <End Role="Tbl_Otopark" Type="Self.Tbl_Otopark" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaID" />
+            </Principal>
+            <Dependent Role="Tbl_Otopark">
+              <PropertyRef Name="OtoparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="My_HotelModelStoreContainer">
+          <EntitySet Name="Tbl_Calisan" EntityType="Self.Tbl_Calisan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Oda" EntityType="Self.Tbl_Oda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Odeme" EntityType="Self.Tbl_Odeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Otopark" EntityType="Self.Tbl_Otopark" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Tbl_Odeme_Tbl_Oda" Association="Self.FK_Tbl_Odeme_Tbl_Oda">
             <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
             <End Role="Tbl_Odeme" EntitySet="Tbl_Odeme" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Otopark_Tbl_Otopark" Association="Self.FK_Tbl_Otopark_Tbl_Otopark">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Otopark" EntitySet="Tbl_Otopark" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="My_HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -66,6 +102,8 @@
           <Property Name="OdaKisiLimit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OdaGenislik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tbl_Odeme" Relationship="Self.FK_Tbl_Odeme_Tbl_Oda" FromRole="Tbl_Oda" ToRole="Tbl_Odeme" />
+          <NavigationProperty Name="Tbl_Otopark" Relationship="My_HotelModel.FK_Tbl_Otopark_Tbl_Otopark" FromRole="Tbl_Oda" ToRole="Tbl_Otopark" />
+          <Property Name="OdaDurum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tbl_Odeme">
           <Key>
@@ -105,7 +143,44 @@
             <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
             <End Role="Tbl_Odeme" EntitySet="Tbl_Odeme" />
           </AssociationSet>
+          <EntitySet Name="Tbl_Otopark" EntityType="My_HotelModel.Tbl_Otopark" />
+          <AssociationSet Name="FK_Tbl_Otopark_Tbl_Otopark" Association="My_HotelModel.FK_Tbl_Otopark_Tbl_Otopark">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Otopark" EntitySet="Tbl_Otopark" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Calisan" EntityType="My_HotelModel.Tbl_Calisan" />
         </EntityContainer>
+        <EntityType Name="Tbl_Otopark">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OdaID" Type="Int32" />
+          <NavigationProperty Name="Tbl_Oda" Relationship="My_HotelModel.FK_Tbl_Otopark_Tbl_Otopark" FromRole="Tbl_Otopark" ToRole="Tbl_Oda" />
+        </EntityType>
+        <Association Name="FK_Tbl_Otopark_Tbl_Otopark">
+          <End Type="My_HotelModel.Tbl_Oda" Role="Tbl_Oda" Multiplicity="1" />
+          <End Type="My_HotelModel.Tbl_Otopark" Role="Tbl_Otopark" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaID" />
+            </Principal>
+            <Dependent Role="Tbl_Otopark">
+              <PropertyRef Name="OtoparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalisanIsim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanSoyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanUyruk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanPozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanMusait" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -115,6 +190,7 @@
           <EntitySetMapping Name="Tbl_Oda">
             <EntityTypeMapping TypeName="My_HotelModel.Tbl_Oda">
               <MappingFragment StoreEntitySet="Tbl_Oda">
+                <ScalarProperty Name="OdaDurum" ColumnName="OdaDurum" />
                 <ScalarProperty Name="OdaID" ColumnName="OdaID" />
                 <ScalarProperty Name="OdaTip" ColumnName="OdaTip" />
                 <ScalarProperty Name="OdaKisiLimit" ColumnName="OdaKisiLimit" />
@@ -138,6 +214,26 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Otopark">
+            <EntityTypeMapping TypeName="My_HotelModel.Tbl_Otopark">
+              <MappingFragment StoreEntitySet="Tbl_Otopark">
+                <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Calisan">
+            <EntityTypeMapping TypeName="My_HotelModel.Tbl_Calisan">
+              <MappingFragment StoreEntitySet="Tbl_Calisan">
+                <ScalarProperty Name="CalisanMusait" ColumnName="CalisanMusait" />
+                <ScalarProperty Name="CalisanPozisyon" ColumnName="CalisanPozisyon" />
+                <ScalarProperty Name="CalisanUyruk" ColumnName="CalisanUyruk" />
+                <ScalarProperty Name="CalisanSoyisim" ColumnName="CalisanSoyisim" />
+                <ScalarProperty Name="CalisanIsim" ColumnName="CalisanIsim" />
+                <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

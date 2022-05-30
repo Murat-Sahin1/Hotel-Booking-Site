@@ -28,7 +28,14 @@ namespace Hotel_Booking_Site.Controllers
                     {
                         Session["UserID"] = obj.UserID.ToString();
                         Session["Username"] = obj.Username.ToString();
+                        if(obj_user.Username.Equals("Admin"))
+                        {
+                            return RedirectToAction("AdminDashBoard");
+                        }
+                        else
+                        {
                         return RedirectToAction("UserDashBoard");
+                        }
                     }
                 }
                 
@@ -39,6 +46,17 @@ namespace Hotel_Booking_Site.Controllers
         public ActionResult UserDashBoard()
         {
             if(Session["UserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        public ActionResult AdminDashBoard()
+        {
+            if (Session["UserID"] != null)
             {
                 return View();
             }

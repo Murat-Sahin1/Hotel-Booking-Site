@@ -19,6 +19,29 @@ namespace Hotel_Booking_Site.Controllers
         {
             return View(db.Tbl_Oda.ToList());
         }
+        /*
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(Tbl_Oda obj_oda)
+        {
+            int id = obj_oda.OdaID;
+            return RedirectToAction("Rezervasyon_Ekrani", id);
+        }
+        */
+        public ActionResult Rezervasyon_Ekrani(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Tbl_Oda tbl_Oda = db.Tbl_Oda.Find(id);
+            if (tbl_Oda == null)
+            {
+                return HttpNotFound();
+            }
+            var model = tbl_Oda;
+            return View(model);
+        }
 
         // GET: Tbl_Oda/Details/5
         public ActionResult Details(int? id)
@@ -122,6 +145,29 @@ namespace Hotel_Booking_Site.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult OdaID(int id)
+        {
+            string OdemeFiyat = (from k in db.Tbl_Odeme
+                            where k.OdaID == id
+                            select k.OdemeFiyat).FirstOrDefault();
+
+            ViewBag.Title = OdemeFiyat + " seçilen odanın fiyatı.";
+            ViewBag.Id = id;
+            List<Tbl_Oda> buFiyattakiOdalar = (from u in db.Tbl_Oda
+                                                 where u.OdaID == id
+                                                 select u).ToList();
+
+            return View(buFiyattakiOdalar);
+
+        }
+        public ActionResult Detay(int id)
+        {
+            Tbl_Oda my_oda = (from u in db.Tbl_Oda
+                              where u.OdaID == id
+                              select u).FirstOrDefault();
+
+            return View(my_oda);
         }
     }
 }
