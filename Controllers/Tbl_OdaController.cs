@@ -19,15 +19,28 @@ namespace Hotel_Booking_Site.Controllers
         {
             return View(db.Tbl_Oda.ToList());
         }
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(Tbl_Oda my_obj)
+        public ActionResult Index(Tbl_Oda obj_oda)
         {
-            return RedirectToAction("Rezervasyon_Ekrani");
+            int id = obj_oda.OdaID;
+            return RedirectToAction("Rezervasyon_Ekrani", id);
         }
-        public ActionResult Rezervasyon_Ekrani()
+        */
+        public ActionResult Rezervasyon_Ekrani(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Tbl_Oda tbl_Oda = db.Tbl_Oda.Find(id);
+            if (tbl_Oda == null)
+            {
+                return HttpNotFound();
+            }
+            var model = tbl_Oda;
+            return View(model);
         }
 
         // GET: Tbl_Oda/Details/5

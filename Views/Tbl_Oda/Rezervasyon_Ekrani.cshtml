@@ -1,7 +1,64 @@
 ﻿@model Hotel_Booking_Site.Models.Tbl_Oda
 
 @{
-    ViewBag.Title = "Rezervasyon_Ekrani";
+    ViewBag.Title = "Details";
+    
+    var imgpath = "~/Content/oda/" + Model.OdaTip.ToString() + ".jpg";
 }
 
-<h2>rezz</h2>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class="list-group list-group-light" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active px-3 border-0" id="list-home-list"
+                           data-mdb-toggle="list" href="#list-home" role="tab" aria-controls="list-home"><h1 class="display-6">Oda Numarası</h1></a>
+
+                        <a class="list-group-item list-group-item-action px-3 border-0" id="list-profile-list"
+                           data-mdb-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile"><h1 class="display-6">Odanın Kişi Limiti</h1></a>
+
+                        <a class="list-group-item list-group-item-action px-3 border-0" id="list-kisi-list"
+                           data-mdb-toggle="list" href="#list-kisi" role="tab" aria-controls="list-kisi"><h1 class="display-6">Odanın Tipi</h1></a>
+
+                        <a class="list-group-item list-group-item-action px-3 border-0" id="list-messages-list"
+                           data-mdb-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages"><h1 class="display-6">Odanın Genişliği</h1></a>
+
+                        <a class="list-group-item list-group-item-action px-3 border-0" id="list-settings-list"
+                           data-mdb-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings"><h1 class="display-6">Odanın Durumu</h1></a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                             aria-labelledby="list-home-list">
+                            <h1 class="display-1 d-flex justify-content-center my-lg-5">@Model.OdaID</h1>
+                        </div>
+
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            <h1 class="display-1 d-flex justify-content-center my-lg-5">@Model.OdaKisiLimit</h1>
+                            
+                        </div>
+
+                        <div class="tab-pane fade" id="list-kisi" role="tabpanel" aria-labelledby="list-kisi-list">
+                            <div class="row">
+                                <h1 class="display-1 d-flex justify-content-center my-lg-5">@Model.OdaTip Oda</h1>
+                            </div>
+                            <div class="row">
+                                <img src='@Url.Content(imgpath)' class="img-rounded d-flex mx-auto" style="max-height: 600px; max-width: 600px;">
+                            </div>                    
+                        </div>
+
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                            <h1 class="display-1 d-flex justify-content-center my-lg-5">@Model.OdaGenislik</h1>
+                        </div>
+
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            <h1 class="display-1 d-flex justify-content-center my-lg-5">@Model.OdaDurum</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

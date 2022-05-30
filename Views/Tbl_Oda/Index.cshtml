@@ -6,47 +6,62 @@
 @{/*
 
 
-    <div class="col-md-6 mx-auto">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.OdaTip)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.OdaKisiLimit)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.OdaGenislik)
-                    </th>
-                    <th></th>
-                </tr>
+               <div class="col-md-6 mx-auto">
+                   <div class="table-responsive">
+                       <table class="table table-bordered table-hover table-striped">
+                           <tr>
+                               <th>
+                                   @Html.DisplayNameFor(model => model.OdaTip)
+                               </th>
+                               <th>
+                                   @Html.DisplayNameFor(model => model.OdaKisiLimit)
+                               </th>
+                               <th>
+                                   @Html.DisplayNameFor(model => model.OdaGenislik)
+                               </th>
+                               <th></th>
+                           </tr>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OdaTip)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OdaKisiLimit)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OdaGenislik)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.OdaID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.OdaID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.OdaID })
-                        </td>
-                    </tr>
-                }
+                           @foreach (var item in Model)
+                           {
+                               <tr>
+                                   <td>
+                                       @Html.DisplayFor(modelItem => item.OdaTip)
+                                   </td>
+                                   <td>
+                                       @Html.DisplayFor(modelItem => item.OdaKisiLimit)
+                                   </td>
+                                   <td>
+                                       @Html.DisplayFor(modelItem => item.OdaGenislik)
+                                   </td>
+                                   <td>
+                                       @Html.ActionLink("Edit", "Edit", new { id = item.OdaID }) |
+                                       @Html.ActionLink("Details", "Details", new { id = item.OdaID }) |
+                                       @Html.ActionLink("Delete", "Delete", new { id = item.OdaID })
+                                   </td>
+                               </tr>
+                           }
 
-            </table>
-        </div>
-    </div>
-*/
+                       </table>
+                   </div>
+               </div>
+           */
 }
+
+   @{  var basariliPostBackFlag = false;
+
+       if (IsPost)
+       {
+           basariliPostBackFlag = true;
+       }
+       else
+       {
+           basariliPostBackFlag = false;
+       }
+
+
+}
+
 <div class="container">
     <div class="row ">
         <div class="col my-5 d-flex mx-auto">
@@ -54,72 +69,78 @@
         </div>
     </div>
 </div>
-
-<table class="table align-middle mb-0 bg-white table-hover table-striped">
-    <thead class="bg-light">
-        <tr>
-            <th>Oda Tipi</th>
-            <th>Odanın Kişi Limiti</th>
-            <th>Odanın Durumu</th>
-            <th>Odanın Genişliği</th>
-            <th>Rezervasyon</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            using (Html.BeginForm("Index", "Tbl_Oda", FormMethod.Post))
+@{       if (basariliPostBackFlag)
             {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-
-                var a = Html.DisplayFor(modelItem => item.OdaTip);
-                ViewBag.strnk = "~/Content/oda/" + a.ToString() + ".jpg";
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <img src='@Url.Content(ViewBag.strnk)'
-                                 alt=""
-                                 style="width: 45px; height: 45px"
-                                 class="rounded-circle" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
-                                <p class="text-muted mb-0">IP Royal Hotel</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
-                    </td>
-                    @if (Html.DisplayFor(modelItem => item.OdaDurum).ToString() == "Mesgul")
-                    {
-                        <td>
-                            <span class="badge badge-danger rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
-                        <td>
-                            <button type="button" class="btn btn-link btn-sm btn-rounded" disabled>
-                                Rezervasyon
-                            </button>
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            <span class="badge badge-success rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
-                        <td>
-                            <div class="container-login100-form-btn">
-                                <button class="login100-form-btn">
-                                    Giriş yap
-                                </button>
-                            </div>
-                        </td>
-
-                    }
-                </tr>
+            <h2>Postback</h2>
             }
-        }
-    </tbody>
-</table>
+            else
+            {
+    <table class="table align-middle mb-0 bg-white table-hover table-striped">
+        <thead class="bg-light">
+            <tr>
+                <th>Oda Tipi</th>
+                <th>Odanın Kişi Limiti</th>
+                <th>Odanın Durumu</th>
+                <th>Odanın Genişliği</th>
+                <th>Rezervasyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                using (Html.BeginForm("Index", "Tbl_Oda", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    var a = Html.DisplayFor(modelItem => item.OdaTip);
+                    ViewBag.strnk = "~/Content/oda/" + a.ToString() + ".jpg";
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src='@Url.Content(ViewBag.strnk)'
+                                     alt=""
+                                     style="width: 45px; height: 45px"
+                                     class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@Html.DisplayFor(modelItem => item.OdaTip)</p>
+                                    <p class="text-muted mb-0">IP Royal Hotel</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1 mx-auto">@Html.DisplayFor(modelItem => item.OdaKisiLimit)</p>
+                        </td>
+                        @if (Html.DisplayFor(modelItem => item.OdaDurum).ToString() == "Mesgul")
+                        {
+                            <td>
+                                <span class="badge badge-danger rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
+                            <td>
+                                <button type="button" class="btn btn-link btn-sm btn-rounded" disabled>
+                                    Rezervasyon
+                                </button>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span class="badge badge-success rounded-pill d-inline">@Html.DisplayFor(modelItem => item.OdaDurum)</span>
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.OdaGenislik)</td>
+                            <td>
+                                <div class="container-login100-form-btn">
+                                    @Html.ActionLink("Rezervasyon","Rezervasyon_Ekrani","Tbl_Oda", new { id = item.OdaID }, new { @class = "login100-form-btn" })
+                                    
+                                </div>
+                            </td>
+
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+            }
+}
